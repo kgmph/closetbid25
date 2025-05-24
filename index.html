@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ClosetBid - Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ClosetBid</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="list.html">List an Item</a>
+        <a href="contact.html">Contact</a>
+        <a href="account.html">Account</a>
+      </nav>
+    </header>
+
+    <main>
+      <main>
+        <section class="homepage-content">
+          <div class="intro-text">
+            <h2>Welcome to ClosetBid</h2>
+            <p>
+              Bid on trendy fashion items. Listings close in 3 days — highest
+              bid wins!
+            </p>
+            <a href="shop.html" class="cta-button">Start Bidding</a>
+          </div>
+
+          <div class="slideshow-box">
+            <div class="slideshow-container">
+              <div class="slide active">
+                <img src="images\shoes.jpeg" alt="Timberlands" />
+                <p>Black Timberland boots – Stylish and comfy</p>
+              </div>
+              <div class="slide">
+                <img src="images\leathercoat.jpeg" alt="Jacket" />
+                <p>Black Leather Jacket – Timeless Usa</p>
+              </div>
+              <div class="slide">
+                <img src="images\womensdress.jpeg" alt="Dress" />
+                <p>Blue Dress Elegant and bold</p>
+              </div>
+              <div class="slide">
+                <img src="images\jorts.jpeg" alt="Shorts" />
+                <p>Summer Shorts – Light and casual</p>
+              </div>
+            </div>
+            <div class="slide-controls">
+              <button onclick="prevSlide()">&#10094;</button>
+              <button onclick="nextSlide()">&#10095;</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </main>
+  </body>
+  <script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Auto-slide every 4 seconds
+  setInterval(nextSlide, 4000);
+
+  // Init
+  showSlide(currentSlide);
+</script>
+
+  </script>
+</html>

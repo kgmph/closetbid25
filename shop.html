@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClosetBid - Shop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ClosetBid</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="list.html">List an Item</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Browse by Category</h2>
+      <div class="filters">
+        <button onclick="filterItems('all')">All</button>
+        <button onclick="filterItems('mens')">Men's</button>
+        <button onclick="filterItems('womens')">Women's</button>
+        <button onclick="filterItems('shoes')">Shoes</button>
+      </div>
+
+      <div class="shop-items">
+        <div class="item mens">
+          <img
+            src="images\leather.jpeg"
+            alt="Leather Jacket"
+            width="200"
+            height="294"
+          />
+          <h3>Leather Jacket</h3>
+          <p>Starting Bid: P450.00</p>
+        </div>
+
+        <div class="item womens">
+          <img src="images\dress.jpeg" alt="Red Dress" width="200" />
+          <h3>Red Dress</h3>
+          <p>Starting Bid: P380.00</p>
+        </div>
+
+        <div class="item shoes">
+          <img
+            src="images\sneakers.jpeg"
+            alt="Sneakers"
+            width="200"
+            height="265"
+          />
+          <h3>White Sneakers</h3>
+          <p>Starting Bid: P350.00</p>
+        </div>
+
+        <div class="item mens">
+          <img src="images\jeans.jpeg" alt="Blue Jeans" width="200" />
+          <h3>Blue Jeans</h3>
+          <p>Starting Bid: P230.00</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function filterItems(category) {
+        const items = document.querySelectorAll(".item");
+        items.forEach((item) => {
+          if (category === "all" || item.classList.contains(category)) {
+            item.style.display = "inline-block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

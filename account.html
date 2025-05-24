@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Account - ClosetBid</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ClosetBid</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="list.html">List an Item</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Logout</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Your account <span id="userName">Guest</span></h2>
+
+      <section class="account-section">
+        <section class="account-section">
+            <h3> Your Cart</h3>
+            <div class="item-row">
+              <img src="images\sneakers1.jpeg" alt="Sneakers" class="item-img">
+              <p>White Sneakers – P350.00</p>
+            </div>
+            
+            <div class="item-row">
+              <img src="images\dress1.jpeg" alt="Dress" class="item-img">
+              <p>Red Dress – P400.00</p>
+            </div>
+          
+            <h3>Past Purchases</h3>
+            <div class="item-row">
+              <img src="images\jorts2.jpeg" alt="Shorts" class="item-img">
+              <p>Summer Shorts – P250.00</p>
+            </div>
+            <div class="item-row">
+              <img src="images\jeans1.jpeg" alt="Jeans" class="item-img">
+              <p>Blue Jeans – P300.00</p>
+            </div>
+          
+            <a href="index.html" class="cta-button">← Back to Home</a>
+          </section>
+          
+    </main>
+
+    <script>
+      const user = localStorage.getItem("closetUser");
+      document.getElementById("userName").textContent = user || "";
+    </script>
+  </body>
+</html>

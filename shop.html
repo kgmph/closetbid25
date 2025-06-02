@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClosetBid - Shop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ClosetBid</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="list.html">List an Item</a>
+        <a href="contact.html">Contact</a>
+        <a href="account.html">Account</a>
+        <a href="feedback.html">Feedback</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Browse & Bid on Items</h2>
+
+      <div class="filters">
+        <button onclick="filterItems('all')">All</button>
+        <button onclick="filterItems('mens')">Men's</button>
+        <button onclick="filterItems('womens')">Women's</button>
+        <button onclick="filterItems('shoes')">Shoes</button>
+      </div>
+
+      <div class="shop-items">
+        <div class="item mens" style="border: 2px solid #ae5656; padding: 10px">
+          <img
+            src="images\leather.jpeg"
+            alt="Leather Jacket"
+            width="200"
+            height="294"
+          />
+          <h3>Leather Jacket</h3>
+          <p>Starting Bid: P450.00</p>
+          <input type="number" id="bid1" placeholder="Enter your bid" />
+          <button onclick="placeBid(1, 450)">Place Bid</button>
+          <p id="result1" style="color: green"></p>
+        </div>
+
+        <div class="item womens" style="border: 2px solid #ccc; padding: 10px">
+          <img src="images\dress.jpeg" alt="Red Dress" width="200" />
+          <h3>Red Dress</h3>
+          <p>Starting Bid: P380.00</p>
+          <input type="number" id="bid2" placeholder="Enter your bid" />
+          <button onclick="placeBid(2, 380)">Place Bid</button>
+          <p id="result2" style="color: green"></p>
+        </div>
+
+        <div class="item shoes" style="border: 2px solid #ccc; padding: 10px">
+          <img
+            src="images\sneakers.jpeg"
+            alt="Sneakers"
+            width="200"
+            height="265"
+          />
+          <h3>White Sneakers</h3>
+          <p>Starting Bid: P350.00</p>
+          <input type="number" id="bid3" placeholder="Enter your bid" />
+          <button onclick="placeBid(3, 350)">Place Bid</button>
+          <p id="result3" style="color: green"></p>
+        </div>
+
+        <div class="item mens" style="border: 2px solid #ccc; padding: 10px">
+          <img src="images\jeans.jpeg" alt="Blue Jeans" width="200" />
+          <h3>Blue Jeans</h3>
+          <p>Starting Bid: P230.00</p>
+          <input type="number" id="bid4" placeholder="Enter your bid" />
+          <button onclick="placeBid(4, 230)">Place Bid</button>
+          <p id="result4" style="color: green"></p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 ClosetBid. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function placeBid(itemId, currentBid) {
+        const bidInput = document.getElementById("bid" + itemId);
+        const result = document.getElementById("result" + itemId);
+        const bidValue = parseFloat(bidInput.value);
+
+        if (isNaN(bidValue)) {
+          result.textContent = "Please enter a valid bid.";
+          result.style.color = "red";
+          return;
+        }
+
+        if (bidValue < currentBid + 20) {
+          result.textContent =
+            "Bid must be at least P" + (currentBid + 20).toFixed(2);
+          result.style.color = "red";
+        } else {
+          result.textContent =
+            "✅ Bid placed! You're now in a 3-day waiting list.";
+          result.style.color = "green";
+        }
+      }
+
+      function filterItems(category) {
+        const items = document.querySelectorAll(".item");
+        items.forEach((item) => {
+          if (category === "all" || item.classList.contains(category)) {
+            item.style.display = "inline-block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

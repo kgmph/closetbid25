@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClosetBid - List an Item</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ClosetBid</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="list.html">List an Item</a>
+        <a href="contact.html">Contact</a>
+        <a href="account.html">Account</a>
+        <a href="feedback.html">Feedback</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>List Your Item for Bidding</h2>
+      <form>
+        <label for="title">Item Name:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="e.g., Leather Jacket"
+          required
+        />
+
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+          <option value="mens">Men's</option>
+          <option value="womens">Women's</option>
+          <option value="shoes">Shoes</option>
+        </select>
+
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+        <small>Drag and drop your image here or click to select one</small>
+
+        <label for="bid">Starting Bid (P):</label>
+        <input
+          type="number"
+          id="bid"
+          name="bid"
+          placeholder="e.g., 450.00"
+          required
+        />
+
+        <label for="description">Item Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Enter item details here..."
+          required
+        ></textarea>
+
+        <button type="submit">Submit Item</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 ClosetBid. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

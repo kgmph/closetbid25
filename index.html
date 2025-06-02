@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClosetBid - Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ClosetBid</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="list.html">List an Item</a>
+        <a href="contact.html">Contact</a>
+        <a href="account.html">Account</a>
+        <a href="feedback.html">Feedback</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="homepage-content">
+        <div class="intro-text">
+          <h2>Welcome to ClosetBid</h2>
+          <p>Your one-stop platform for bidding on stylish clothes.</p>
+          <a href="shop.html" class="cta-button">Start Bidding</a>
+        </div>
+
+        <div class="slideshow-box">
+          <div class="slideshow-container">
+            <div class="slide active">
+              <img src="images\sneakers.jpeg" alt="Sneakers" />
+              <p>White Sneakers - P350.00</p>
+            </div>
+            <div class="slide">
+              <img src="images\leather.jpeg" alt="Leather Jacket" />
+              <p>Leather Jacket - P450.00</p>
+            </div>
+            <div class="slide">
+              <img src="images\dress.jpeg" alt="Red Dress" />
+              <p>Red Dress - P380.00</p>
+            </div>
+            <div class="slide">
+              <img src="images\jeans.jpeg" alt="Blue Jeans" />
+              <p>Blue Jeans - P230.00</p>
+            </div>
+          </div>
+
+          <div class="slide-controls">
+            <button onclick="prevSlide()">❮</button>
+            <button onclick="nextSlide()">❯</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 ClosetBid. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      setInterval(nextSlide, 4000);
+      showSlide(currentSlide);
+    </script>
+  </body>
+</html>
